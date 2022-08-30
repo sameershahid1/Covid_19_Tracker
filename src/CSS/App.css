@@ -46,7 +46,7 @@ body
 }
 
 
-@media screen and (max-width:788px)
+@media screen and (max-width:913px)
 {
     .app
     {
@@ -57,5 +57,12 @@ body
     {
         font-size:0.7rem;
     }
+
+    .app__right
+    {
+        display: flex;
+        flex-flow: column wrap;
+    }
+
 }
 
