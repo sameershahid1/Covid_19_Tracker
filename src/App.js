@@ -9,6 +9,8 @@ import './CSS/App.css'
 import InfoBox from './Component/InfoBoxe'
 import Map from './Component/Map'
 import Table from './Component/Table'
+import LineGraph from './Component/LineGraph';
+
 
 //Importing Utility Function
 import { sortData } from './Utility/utility';
@@ -126,10 +128,9 @@ const OnCountryChange=async(event)=>{
   <Card className="app__right">
      <CardContent>
         <h3>Live Cases byCountry</h3>
-        <Table countries={TableData}>
-           
-        </Table>
+        <Table countries={TableData}/>
         <h3>WorldWide New Cases</h3>
+        <LineGraph casesType="cases"/>
      </CardContent>
   </Card>
   {/*End of Tables and Charts*/} 
