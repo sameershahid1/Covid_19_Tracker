@@ -8,11 +8,17 @@
     background-color: white;
 }
 
+.table>table 
+{
+  width: 100%;
+}
+
 .table tr
 {
     display: flex;
     justify-content: space-between;
     padding:15px;
+    width: 100%;
 }
 
 .table tr:nth-of-type(odd)
@@ -20,11 +26,4 @@
     background-color: #f3f2f8;
 }
 
-@media screen and (max-width:913px)
-{
-   .table>table
-   {
-      width:100%;
-   }
-   
-}
+

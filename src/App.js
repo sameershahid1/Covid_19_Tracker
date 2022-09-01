@@ -1,14 +1,15 @@
 //Importing Material UI Component
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect} from 'react';
 import {MenuItem,FormControl,Select, Card,CardContent}  from '@mui/material';
 
 //Importing CSS file for Styling
-import './CSS/App.css'
+import './CSS/App.css';
+import 'leaflet/dist/leaflet.css';
 
 //Importing Component
-import InfoBox from './Component/InfoBoxe'
-import Map from './Component/Map'
-import Table from './Component/Table'
+import InfoBox from './Component/InfoBoxe';
+import Map from './Component/Map';
+import Table from './Component/Table';
 import LineGraph from './Component/LineGraph';
 
 
@@ -22,8 +23,9 @@ const [Countries,setCountries]=useState([]);
 const [country,setCountry]=useState("worldwide");
 const [countryInfo,setCountryInfo]=useState({});
 const [TableData,setTableData]=useState([]);
-
-
+const [mapcenter,setMapCenter]=useState([34.80746,-40.4796]);
+const [mapZoom,setMapZoom]=useState(3);
+const [mapCountries,setMapCountries]=useState([]);
 //This function is getting all countries data
 useEffect(()=>{
 const GetAll=async()=>{
@@ -31,6 +33,7 @@ const GetAll=async()=>{
   .then(response=>response.json())
   .then(data=>{
     setCountryInfo(data);
+
   });
 }
 GetAll();
@@ -46,6 +49,7 @@ useEffect(()=>{
         const CountryList=RAW.map((Da)=>({name:Da.country,value:Da.countryInfo}));
         setTableData(sortData(RAW));
         setCountries(CountryList);
+        setMapCountries(RAW);
       }
       catch(error)
       {
@@ -68,10 +72,12 @@ const OnCountryChange=async(event)=>{
    {
      await fetch(url)
      .then(response=>response.json())
-     .then((data)=>{
+     .then((DA)=>{
       setCountry(countryCode);
-      setCountryInfo(data);
-      })
+      setCountryInfo(DA);
+      setMapZoom(4);
+      setMapCenter([DA.countryInfo.lat,DA.countryInfo.long]);
+      });
    }
    catch(error){console.log(error)}
 }
@@ -120,7 +126,7 @@ const OnCountryChange=async(event)=>{
      {/*End of InfoBoxe*/}  
 
    {/*Map*/}
-    <Map/>
+    <Map countries={mapCountries} center={mapcenter} zoom={mapZoom}/>
    {/*End of Map*/}
   </div>
 
