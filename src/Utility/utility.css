@@ -1,0 +1,62 @@
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip
+{
+    border-radius: 10px;
+    background: rgb(94, 94, 80);
+    background: radial-gradient(circle, rgba(94, 94, 80, 1) 0%, rgba(18, 23, 21, 1) 100%);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip:hover
+{
+    box-shadow: 0 0 7px 2px rgba(255, 0, 0, 0.7);
+    border: 2px ridge rgb(83, 25, 25);
+    outline:2px ridge red;
+}
+
+
+.leaflet-container a.leaflet-popup-close-button
+{
+    color:white;
+    font-size: 1.5rem;
+}
+
+
+.info-container>:nth-child(2)
+{
+    font-size:1.6rem;
+    font-weight:bold;
+    color:rgba(231, 203, 110, 0.945);
+}
+
+.info-container>:nth-child(3),
+.info-container>:nth-child(4),
+.info-container>:nth-child(5)
+{
+    font-size:0.9rem;
+    font-weight:600;
+}
+
+
+.info-container>:nth-child(3)
+{
+    color: rgb(255, 153, 0.788);
+}
+
+.info-container>:nth-child(4)
+{
+    color: rgb(115, 255, 0.788);
+}
+
+.info-container>:nth-child(5)
+{
+    color: rgba(255, 0, 0, 0.945);
+}
+
+.info-flag
+{
+    height: 80px;
+    width:8rem;
+    background-size: cover;
+    border-radius: 8px;
+}

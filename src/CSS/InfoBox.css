@@ -1,0 +1,29 @@
+.infoBox
+{
+    flex:1;
+}
+
+.infoBox__title
+{
+    text-align: center;
+}
+
+.infoBox__cases
+{
+    color: red;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size:1.3rem;
+}
+
+.infoBox__total
+{
+    color: "#6c757d";
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    margin-top: 15px !important;
+}
+
+
+
+

@@ -7,7 +7,7 @@ import './CSS/App.css';
 import 'leaflet/dist/leaflet.css';
 
 //Importing Component
-import InfoBox from './Component/InfoBoxe';
+import InfoBox from './Component/InfoBox';
 import Map from './Component/Map';
 import Table from './Component/Table';
 import LineGraph from './Component/LineGraph';
@@ -26,6 +26,8 @@ const [TableData,setTableData]=useState([]);
 const [mapcenter,setMapCenter]=useState([34.80746,-40.4796]);
 const [mapZoom,setMapZoom]=useState(3);
 const [mapCountries,setMapCountries]=useState([]);
+const [CasesType,setCasesType]=useState("cases");
+
 //This function is getting all countries data
 useEffect(()=>{
 const GetAll=async()=>{
@@ -104,6 +106,7 @@ const OnCountryChange=async(event)=>{
     <div className="app__stats">
         {/*Infected Cases*/}
         <InfoBox 
+          onClick={e=>setCasesType("cases")}
           title="Infected Cases" 
           cases={countryInfo.todayCases} 
           total={countryInfo.cases}
@@ -111,13 +114,15 @@ const OnCountryChange=async(event)=>{
 
         {/*Recovered Cases*/}
         <InfoBox 
+         onClick={e=>setCasesType("recovered")}
          title="Recovered Cases" 
          cases={countryInfo.todayRecovered} 
          total={countryInfo.recovered}
         />
 
         {/*Death Cases*/}
-        <InfoBox 
+        <InfoBox
+          onClick={e=>setCasesType("deaths")}
          title="Death Cases" 
          cases={countryInfo.todayDeaths} 
          total={countryInfo.deaths}
@@ -126,7 +131,7 @@ const OnCountryChange=async(event)=>{
      {/*End of InfoBoxe*/}  
 
    {/*Map*/}
-    <Map countries={mapCountries} center={mapcenter} zoom={mapZoom}/>
+    <Map casesType={CasesType} countries={mapCountries} center={mapcenter} zoom={mapZoom}/>
    {/*End of Map*/}
   </div>
 
@@ -136,7 +141,7 @@ const OnCountryChange=async(event)=>{
         <h3>Live Cases byCountry</h3>
         <Table countries={TableData}/>
         <h3>WorldWide New Cases</h3>
-        <LineGraph casesType="cases"/>
+        <LineGraph casesType={CasesType}/>
      </CardContent>
   </Card>
   {/*End of Tables and Charts*/} 

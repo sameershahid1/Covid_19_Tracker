@@ -1,19 +1,20 @@
 import React from "react";
 import numeral from "numeral";
 import {Circle,Popup} from 'react-leaflet';
+import './utility.css'
 
 const casesTypesColors={
     cases:{
-        hex:"#CC1034",
-        multiplier:120
+        half_op: "rgba(251, 68, 67,0.7)",
+        multiplier:125
     },
     recovered:{
-        hex:"#7dd71d",
-        multiplier:200
+        half_op: "rgba(125, 215, 29, 0.7)",
+        multiplier:125
     },
     deaths:{
-        hex:"#fb4443",
-        multiplier:100
+        half_op: "rgba(204, 16, 52,0.7)",
+        multiplier:800
     }    
 };
 
@@ -24,17 +25,33 @@ export const sortData=(data)=>{
    return sortedData.sort((a,b)=>(b.cases-a.cases));
 }
 
+export const prettyPrintStat=(stat)=>(
+    stat?`+${numeral(stat).format("0.0a")}`:"No Cases"
+);
+
+
 //DRAW circles on the map with interactive tooltip
-export const showDataOnMap=(data,caseType="cases")=>(
-    data.map(country=>(
-        <Circle
-          center={[country.countryInfo.lat,country.countryInfo.long]}
+export const showDataOnMap=(data,caseType)=>{
+return data.map(Country=>(
+        <Circle key={Country.country}
+          center={[Country.countryInfo.lat,Country.countryInfo.long]}
           fillOpacity={0.4}
-          color={casesTypesColors[caseType].hex}
-          fillColor={casesTypesColors[caseType].hex}
-          radius={Math.sqrt(country[caseType])*casesTypesColors[caseType].multiplier}
+          pathOptions={{color:casesTypesColors[caseType].half_op,fillColor:casesTypesColors[caseType].half_op}}
+          radius={Math.sqrt(Country[caseType])*casesTypesColors[caseType].multiplier}
         >
-        <Popup>I will kill you</Popup>
+
+        <Popup>
+           <div className="info-container">
+            <div className="info-flag" style={{backgroundImage:`url(${Country.countryInfo.flag})`}}></div>
+            <div>{Country.country}</div>
+            <div>Cases:{numeral(Country.cases).format("0,0")}</div>
+            <div>Recovered:{numeral(Country.recovered).format("0,0")}</div>
+            <div>Deaths:{numeral(Country.deaths).format("0,0")}</div>
+           </div>
+        </Popup>
         </Circle>
     ))
-);
+};
+
+
+
