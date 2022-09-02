@@ -110,7 +110,7 @@ const OnCountryChange=async(event)=>{
           active={CasesType==="cases"}
           Color={"infoBox--Orange"}
           onClick={e=>setCasesType("cases")}
-          title="Infected Cases" 
+          title="Infected"
           cases={countryInfo.todayCases} 
           total={countryInfo.cases}
         />
@@ -120,7 +120,7 @@ const OnCountryChange=async(event)=>{
          active={CasesType==="recovered"}
          Color={"infoBox--Green"}
          onClick={e=>setCasesType("recovered")}
-         title="Recovered Cases" 
+         title="Recovered" 
          cases={countryInfo.todayRecovered} 
          total={countryInfo.recovered}
         />
@@ -129,7 +129,7 @@ const OnCountryChange=async(event)=>{
         <InfoBox
          active={CasesType==="deaths"}
          onClick={e=>setCasesType("deaths")}
-         title="Death Cases" 
+         title="Deaths" 
          cases={countryInfo.todayDeaths} 
          total={countryInfo.deaths}
         />

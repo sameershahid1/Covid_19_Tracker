@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {MapContainer, TileLayer,useMap} from 'react-leaflet'
+import {MapContainer, TileLayer,useMap,Marker,Popup} from 'react-leaflet'
 import '../CSS/Map.css'
 import { showDataOnMap } from '../Utility/utility';
 
@@ -21,6 +21,9 @@ const Map = ({countries,casesType,center,zoom}) => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
          {showDataOnMap(countries,casesType)}
+          <Marker position={[center[0],center[1]]}>
+             <Popup><h2>Selected Country</h2></Popup>
+          </Marker>
           <SetViewOnClick coords={center}/>
        </MapContainer>
     </div>

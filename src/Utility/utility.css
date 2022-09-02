@@ -60,3 +60,9 @@
     background-size: cover;
     border-radius: 8px;
 }
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip:hover>h2
+{
+    color: red;
+}
