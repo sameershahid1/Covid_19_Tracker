@@ -7,7 +7,7 @@
 
 body
 {
-    background-color: #f5f6fa; 
+    background-color: whitesmoke;
 }
 
 .app
@@ -21,38 +21,84 @@ body
 {
     display: flex;
     justify-content:space-between;
+    width:100%;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.app__dropdown
+{
+background-image: linear-gradient(35deg,
+            hsl(0deg 0% 100%) 0%,
+            hsl(0deg 0% 100%) 11%,
+            hsl(0deg 0% 100%) 22%,
+            hsl(0deg 0% 100%) 33%,
+            hsl(0deg 0% 100%) 44%,
+            hsl(0deg 0% 100%) 56%,
+            hsl(0deg 0% 100%) 67%,
+            hsl(0deg 0% 100%) 78%,
+            hsl(0deg 0% 100%) 89%,
+            hsl(0deg 0% 100%) 100%);
+}
+.app__header>h1
+{
+    color: #fc3c3c;
+    font-size: 2rem;
 }
 
 .app__left
 {
     flex:0.9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .app__right
 {
     box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2) !important;
+    display: flex;
+    flex-direction: column;
 }
 
+.app__right .MuiCardContent-root
+{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 
 .app__stats
 {
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
+    width:80%;
+    gap: 1rem;
 }
 
 
 .app__stats>.infoBox
 {
     border-radius:10px;
-    box-shadow:0 0 3px 1px rgba(0, 0, 0, 0.2);
+    box-shadow:0 0 4px 1px rgba(0, 0, 0, 0.3);
 }
 
 .app__stats>.infoBox:hover 
 {
-    box-shadow: 0 0 3px 3px rgb(13, 5, 58);
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.5);
+    transition:0.7s ease-in-out all;
+}
+
+.app__graph
+{
+    flex-grow: 1;
+}
+
+.app__graph-Title
+{
+    margin-top:20px;
+    margin-bottom:20px;
 }
 
 @media screen and (max-width:913px)
@@ -72,6 +118,50 @@ body
         display: flex;
         flex-flow: column wrap;
     }
+}
+
+@media screen and (max-width:954px)
+{
+    .app__stats
+    {
+        gap:5px;
+        width:30rem;
+        height:11rem;
+    }    
+}
+
+@media screen and (max-width:913px)
+{
+   .app__stats
+   {
+      width:100%;
+      gap: 1.5rem;
+   }
+}
+
+@media screen and (max-width:585px)
+{
+    .app__stats
+    {
+        gap: 0.5rem;
+        height:8rem;
+    }
 
 }
 
+@media screen and (max-width:460px)
+{
+    .app__stats
+    {
+        gap: 0.01px;
+    }
+}
+
+
+@media screen and (max-width:1024px) 
+{
+    .app__stats
+    {
+        width:95%;
+    } 
+}

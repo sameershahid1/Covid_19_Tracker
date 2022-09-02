@@ -72,7 +72,7 @@ const buildChartData=(data,casesType='cases')=>{
 
 
 //LineGraph Components
-const LineGraph = ({casesType}) => {
+const LineGraph = ({className,casesType="cases"}) => {
 const [data,setData]=useState({});
 const DA = {
    datasets: [
@@ -103,7 +103,7 @@ useEffect(()=>{
 
 
 return (
-    <div className='line-Graph'>
+    <div className={className}>
       {data?.length>0&&<Line options={options} data={DA}/>}
     </div>
   )

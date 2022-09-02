@@ -1,16 +1,57 @@
 .infoBox
 {
     flex:1;
+    cursor: pointer;
+    height:8rem;
 }
 
-.infoBox__title
+.infoBox:not(:last-child)
 {
-    text-align: center;
+    margin-right: 15px;
+}
+
+
+.infoBox--selected
+{
+    border-top:10px solid red;    
+background-image: linear-gradient(125deg,
+            hsl(1deg 71% 34%) 1%,
+            hsl(1deg 68% 35%) 43%,
+            hsl(1deg 65% 36%) 50%,
+            hsl(1deg 62% 37%) 51%,
+            hsl(1deg 59% 38%) 51%,
+            hsl(1deg 57% 39%) 49%,
+            hsl(1deg 54% 40%) 49%,
+            hsl(0deg 52% 40%) 50%,
+            hsl(0deg 50% 41%) 57%,
+            hsl(0deg 48% 42%) 99%);
+}
+
+.infoBox--selected .infoBox__cases,
+.infoBox--Green .infoBox__cases,
+.infoBox--Orange .infoBox__cases
+{
+    color: white !important;
+}
+
+.infoBox--Orange
+{
+    border-top: 10px solid orange;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6278886554621849) 0%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 0.7483368347338936) 100%);
+    background: linear-gradient(90deg, hsla(52, 82%, 52%, 1) 0%, hsla(1, 92%, 47%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(52, 82%, 52%, 1) 0%, hsla(1, 92%, 47%, 1) 100%);
+}
+
+.infoBox--Green
+{
+    border-top: 10px solid greenyellow;
+    background: linear-gradient(90deg, hsla(92, 100%, 73%, 1) 0%, hsla(180, 85%, 32%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(92, 100%, 73%, 1) 0%, hsla(180, 85%, 32%, 1) 100%);
 }
 
 .infoBox__cases
 {
-    color: red;
+    color:red;
     font-weight: 600;
     margin-bottom: 0.5rem;
     font-size:1.3rem;
@@ -25,5 +66,111 @@
 }
 
 
+@media screen and (max-width:954px)
+{
+    .infoBox__title
+    {
+        font-size: 1.1rem !important;
+    }
+    .infoBox
+    {
+        width:10rem;
+    }
+}
 
 
+@media screen and (max-width:585px)
+{
+    .infoBox__title
+    {
+        font-size: 1rem !important;
+    }
+    .infoBox__cases
+    {
+        font-size:1.1rem;
+    }
+    .infoBox__total
+    {
+        font-size:0.9rem !important;
+        margin-top: 0 !important;
+    }
+}
+
+@media screen and (max-width:527px)
+{
+    .infoBox__cases
+    {
+        font-size:0.9rem;
+    }
+    .infoBox__title
+    {
+        font-size: 0.9rem !important;
+    }
+    .infoBox
+    {
+        height:7.5rem;
+    }
+    .infoBox__total
+    {
+        font-size:0.75rem !important;
+    }
+}
+
+
+@media screen and (max-width:460px)
+{
+    .infoBox__title
+    {
+        font-size: 0.8rem !important;
+    }
+    .infoBox
+    {
+        height:7rem;
+    }
+}
+
+@media screen and (max-width:375px)
+{
+    .infoBox
+    {
+        height:6.5rem !important;
+    }
+    .infoBox__title
+    {
+        font-size: 0.6rem !important;
+    }
+    .infoBox__cases
+    {
+        font-size: 0.8rem;
+    }
+
+    .infoBox__total
+    {
+        font-size: 0.6rem !important;
+    }
+}
+
+@media screen and (max-width:414px)
+{
+    .infoBox
+    {
+        height:8rem;
+    }
+}
+
+@media screen and (max-width:1024px)
+{
+    .infoBox__title
+    {
+        font-size:1rem !important;
+    }
+    .infoBox__cases
+    {
+        font-size: 1.1rem;
+    }
+
+    .infoBox__total
+    {
+        font-size:0.9rem !important;
+    }
+}

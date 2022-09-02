@@ -63,6 +63,7 @@ getCountriesData();
 
 },[]);
 
+
 //This function is Fetching the selected country data or worldwide data
 const OnCountryChange=async(event)=>{
   const countryCode=event.target.value;
@@ -105,7 +106,9 @@ const OnCountryChange=async(event)=>{
      {/*InfoBoxe*/}  
     <div className="app__stats">
         {/*Infected Cases*/}
-        <InfoBox 
+        <InfoBox
+          active={CasesType==="cases"}
+          Color={"infoBox--Orange"}
           onClick={e=>setCasesType("cases")}
           title="Infected Cases" 
           cases={countryInfo.todayCases} 
@@ -113,7 +116,9 @@ const OnCountryChange=async(event)=>{
         />
 
         {/*Recovered Cases*/}
-        <InfoBox 
+        <InfoBox
+         active={CasesType==="recovered"}
+         Color={"infoBox--Green"}
          onClick={e=>setCasesType("recovered")}
          title="Recovered Cases" 
          cases={countryInfo.todayRecovered} 
@@ -122,7 +127,8 @@ const OnCountryChange=async(event)=>{
 
         {/*Death Cases*/}
         <InfoBox
-          onClick={e=>setCasesType("deaths")}
+         active={CasesType==="deaths"}
+         onClick={e=>setCasesType("deaths")}
          title="Death Cases" 
          cases={countryInfo.todayDeaths} 
          total={countryInfo.deaths}
@@ -140,8 +146,8 @@ const OnCountryChange=async(event)=>{
      <CardContent>
         <h3>Live Cases byCountry</h3>
         <Table countries={TableData}/>
-        <h3>WorldWide New Cases</h3>
-        <LineGraph casesType={CasesType}/>
+        <h3 className='app__graph-Title'>WorldWide New {CasesType}</h3>
+        <LineGraph className="app__graph" casesType={CasesType}/>
      </CardContent>
   </Card>
   {/*End of Tables and Charts*/} 

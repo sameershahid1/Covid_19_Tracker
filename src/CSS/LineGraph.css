@@ -1,5 +1,13 @@
-.line-Graph
+.app__graph
 {
     margin:2rem auto;
-    width:20rem;
+    width:100%;
+}
+
+@media screen and (max-width:913rem) 
+{
+    .app__graph
+    {
+        width:90%;
+    }    
 }
